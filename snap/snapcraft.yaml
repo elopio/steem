@@ -1,0 +1,55 @@
+name: steem
+version: master
+summary: A social media platform where everyone gets paid to post
+description: |
+  Steemit is a social network and content rewards platform that makes the
+  crowd the beneficiaries of the attention economy. It does this be rewarding
+  users with STEEM.
+
+  Steemit has redefined social media by building a living, breathing, and
+  growing social economy; a community where users are getting rewarded for
+  sharing their voice.
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: devmode # use 'strict' once you have the right plugs and slots
+
+apps:
+  daemon:
+    command: steemd
+  cli-wallet:
+    command: cli_wallet
+
+parts:
+  steem:
+    source: .
+    source-type: git
+    plugin: cmake
+    build-packages:
+      - autoconf
+      - automake
+      - cmake
+      - g++
+      - git
+      - libssl-dev
+      - libtool
+      - make
+      - pkg-config
+      - python3
+      - python3-jinja2
+      - libboost-chrono-dev
+      - libboost-context-dev
+      - libboost-coroutine-dev
+      - libboost-date-time-dev
+      - libboost-filesystem-dev
+      - libboost-iostreams-dev
+      - libboost-locale-dev
+      - libboost-program-options-dev
+      - libboost-serialization-dev
+      - libboost-signals-dev
+      - libboost-system-dev
+      - libboost-test-dev
+      - libboost-thread-dev
+      - doxygen
+      - libncurses5-dev
+      - libreadline-dev
+      - perl
